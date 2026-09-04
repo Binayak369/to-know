@@ -269,29 +269,6 @@
             margin-top: 18px;
         }
 
-        .back-btn {
-            position: absolute;
-            top: 18px;
-            left: 18px;
-            z-index: 5;
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-size: 14px;
-            color: var(--ink-soft);
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            padding: 6px 10px;
-            border-radius: 999px;
-        }
-
-        .back-btn:hover {
-            background: var(--line);
-            color: var(--rose-deep);
-        }
-
         .socials {
             display: flex;
             gap: 20px;
@@ -398,7 +375,6 @@
 
             <!-- PAGE 2 -->
             <div class="page" data-page="2">
-                <button class="back-btn" data-back>&larr; back</button>
                 <div class="center-content">
                     <p class="eyebrow">1:</p>
                     <h1 class="headline">Are you cute?</h1>
@@ -412,7 +388,6 @@
 
             <!-- PAGE 3 -->
             <div class="page" data-page="3">
-                <button class="back-btn" data-back>&larr; back</button>
                 <div class="center-content">
                     <p class="eyebrow">2:</p>
                     <h1 class="headline">Are you single?</h1>
@@ -426,7 +401,6 @@
 
             <!-- PAGE 4 -->
             <div class="page" data-page="4">
-                <button class="back-btn" data-back>&larr; back</button>
                 <p class="eyebrow">3</p>
                 <h1 class="headline">What's your dream life?</h1>
                 <p class="sub">Paint it for me — the small, ordinary, wonderful version.</p>
@@ -439,7 +413,6 @@
 
             <!-- PAGE 5 -->
             <div class="page" data-page="5">
-                <button class="back-btn" data-back>&larr; back</button>
                 <div class="center-content">
                     <p class="eyebrow">the real question</p>
                     <h1 class="headline">Can we be friends?</h1>
@@ -453,7 +426,6 @@
 
             <!-- PAGE 6 -->
             <div class="page" data-page="6">
-                <button class="back-btn" data-back>&larr; back</button>
                 <div class="center-content">
                     <p class="eyebrow">wonderful</p>
                     <h1 class="headline">Let's be friend?</h1>
@@ -487,7 +459,6 @@
 
             <!-- PAGE 7 -->
             <div class="page" data-page="7">
-                <button class="back-btn" data-back>&larr; back</button>
                 <div class="center-content">
                     <p class="eyebrow">okay</p>
                     <h1 class="headline">Understood</h1>
@@ -614,15 +585,6 @@
             history.push(n);
             showPage(n);
         }
-        function goBack() {
-            if (history.length > 1) {
-                history.pop();
-                showPage(history[history.length - 1]);
-            }
-        }
-        document.querySelectorAll('[data-back]').forEach(btn => {
-            btn.addEventListener('click', goBack);
-        });
         document.querySelectorAll('[data-next]').forEach(btn => {
             btn.addEventListener('click', () => goTo(parseInt(btn.dataset.next)));
         });
