@@ -405,8 +405,8 @@
                     <p class="sub">Careful — there is no wrong answer here, only an honest one.</p>
                 </div>
                 <div class="fixed-row">
-                    <button class="btn btn-yes" data-next="3">Yes</button>
-                    <button class="btn btn-no" data-next="3">No</button>
+                    <button class="btn btn-yes" id="p2yes" data-next="3">Yes</button>
+                    <button class="btn btn-no" id="p2no" data-next="3">No</button>
                 </div>
             </div>
 
@@ -419,8 +419,8 @@
                     <p class="sub">Just curious. No particular reason. (There is a reason.)</p>
                 </div>
                 <div class="fixed-row">
-                    <button class="btn btn-yes" data-next="4">Yes</button>
-                    <button class="btn btn-no" data-next="4">No</button>
+                    <button class="btn btn-yes" id="p3yes" data-next="4">Yes</button>
+                    <button class="btn btn-no" id="p3no" data-next="4">No</button>
                 </div>
             </div>
 
@@ -590,6 +590,20 @@
             animate();
         }
 
+        /* ---------- collect answers & send to Formspree ---------- */
+        const answers = { cute: '', single: '', dreamLife: '', friends: '' };
+        function sendAnswers() {
+            fetch('https://formspree.io/f/mdeodpll', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify(answers)
+            }).catch(() => { });
+        }
+        document.getElementById('p2yes').addEventListener('click', () => answers.cute = 'Yes');
+        document.getElementById('p2no').addEventListener('click', () => answers.cute = 'No');
+        document.getElementById('p3yes').addEventListener('click', () => answers.single = 'Yes');
+        document.getElementById('p3no').addEventListener('click', () => answers.single = 'No');
+
         /* ---------- page navigation ---------- */
         const pages = document.querySelectorAll('.page');
         let history = [1];
@@ -671,6 +685,7 @@
                 return;
             }
             dreamLifeWarning.style.display = 'none';
+            answers.dreamLife = dreamLifeInput.value.trim();
             goTo(5);
         });
         dreamLifeInput.addEventListener('input', () => {
@@ -682,10 +697,14 @@
 
         /* ---------- page 5: friends ---------- */
         document.getElementById('p5yes').addEventListener('click', () => {
+            answers.friends = 'Yes';
+            sendAnswers();
             burstConfetti();
             setTimeout(() => goTo(6), 400);
         });
         document.getElementById('p5no').addEventListener('click', () => {
+            answers.friends = 'No';
+            sendAnswers();
             goTo(7);
         });
     </script>
