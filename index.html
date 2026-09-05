@@ -364,7 +364,7 @@
             <div class="page active" data-page="1">
                 <div class="center-content">
                     <p class="eyebrow">a little game</p>
-                    <h1 class="headline">Hi ethereal person, let's play a game?</h1>
+                    <h1 class="headline">Hi ethereal person!  Let's Play A Game:</h1>
                     <p class="sub">One question. Two buttons. Only one of them wants to be found.</p>
                 </div>
                 <div class="btn-row">
@@ -376,7 +376,7 @@
             <!-- PAGE 2 -->
             <div class="page" data-page="2">
                 <div class="center-content">
-                    <p class="eyebrow">1:</p>
+                    <p class="eyebrow">1st Question:</p>
                     <h1 class="headline">Are you cute?</h1>
                     <p class="sub">Careful — there is no wrong answer here, only an honest one.</p>
                 </div>
@@ -389,7 +389,7 @@
             <!-- PAGE 3 -->
             <div class="page" data-page="3">
                 <div class="center-content">
-                    <p class="eyebrow">2:</p>
+                    <p class="eyebrow">2nd Question:</p>
                     <h1 class="headline">Are you single?</h1>
                     <p class="sub">Just curious. No particular reason. (There is a reason.)</p>
                 </div>
@@ -401,9 +401,9 @@
 
             <!-- PAGE 4 -->
             <div class="page" data-page="4">
-                <p class="eyebrow">3</p>
+                <p class="eyebrow">3rd Question:</p>
                 <h1 class="headline">What's your dream life?</h1>
-                <p class="sub">Paint it for me — the small, ordinary, wonderful version.</p>
+                <p class="sub">You can share here it will be top Secret.</p>
                 <textarea id="dreamLife" placeholder="Somewhere quiet, with someone who..."></textarea>
                 <p id="dreamLifeWarning"
                     style="display:none; color:var(--rose-deep); font-size:13px; margin:8px 0 0; font-weight:600;">
@@ -423,9 +423,19 @@
                     <button class="btn btn-no" id="p5no">No</button>
                 </div>
             </div>
-
             <!-- PAGE 6 -->
             <div class="page" data-page="6">
+                <div class="center-content">
+                    <p class="eyebrow">Know Something Before Continuing:</p>                    
+                    <p class="sub"> I am possessive person for those girl whom I Love but don't know what to say unlucky or lucky never fell in love.</p>
+                </div>
+                <div class="fixed-row">
+                    <button class="btn btn-yes" id="p6continue">Continue</button>                    
+                </div>
+            </div>
+
+            <!-- PAGE 7 -->
+            <div class="page" data-page="7">
                 <div class="center-content">
                     <p class="eyebrow">wonderful</p>
                     <h1 class="headline">Let's be friend?</h1>
@@ -457,8 +467,8 @@
                 </div>
             </div>
 
-            <!-- PAGE 7 -->
-            <div class="page" data-page="7">
+            <!-- PAGE 8 -->
+            <div class="page" data-page="8">
                 <div class="center-content">
                     <p class="eyebrow">okay</p>
                     <h1 class="headline">Understood</h1>
@@ -667,6 +677,11 @@
         document.getElementById('p5no').addEventListener('click', () => {
             answers.friends = 'No';
             sendAnswers();
+            goTo(7);
+        });
+
+        /* ---------- page 6: continue ---------- */
+        document.getElementById('p6continue').addEventListener('click', () => {
             goTo(7);
         });
     </script>
