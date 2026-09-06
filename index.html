@@ -388,20 +388,7 @@
 
             <!-- PAGE 3 -->
             <div class="page" data-page="3">
-                <div class="center-content">
-                    <p class="eyebrow">2nd Question:</p>
-                    <h1 class="headline">Are you single?</h1>
-                    <p class="sub">Just curious. No particular reason. (There is a reason.)</p>
-                </div>
-                <div class="fixed-row">
-                    <button class="btn btn-yes" id="p3yes" data-next="4">Yes</button>
-                    <button class="btn btn-no" id="p3no" data-next="4">No</button>
-                </div>
-            </div>
-
-            <!-- PAGE 4 -->
-            <div class="page" data-page="4">
-                <p class="eyebrow">3rd Question:</p>
+                <p class="eyebrow">2nd Question:</p>
                 <h1 class="headline">What's your dream life?</h1>
                 <p class="sub">You can share here it will be top Secret.</p>
                 <textarea id="dreamLife" placeholder="Somewhere quiet, with someone who..."></textarea>
@@ -411,9 +398,9 @@
                 <button class="btn btn-yes btn-full" id="p4next">Next</button>
             </div>
 
-            <!-- PAGE 4B -->
-            <div class="page" data-page="5">
-                <p class="eyebrow">4th Question:</p>
+            <!-- PAGE 3B -->
+            <div class="page" data-page="4">
+                <p class="eyebrow">3rd Question:</p>
                 <h1 class="headline">If My Answer is Yes, What will be your Question?</h1>
                 <p class="sub">You Can Ask Whatever You Want.</p>
                 <textarea id="passion" placeholder="Something that lights you up..."></textarea>
@@ -421,6 +408,19 @@
                     style="display:none; color:var(--rose-deep); font-size:13px; margin:8px 0 0; font-weight:600;">
                     Please share a little something before we continue &mdash; even one line 🙂</p>
                 <button class="btn btn-yes btn-full" id="p4bnext">Next</button>
+            </div>
+
+            <!-- PAGE 4 -->
+            <div class="page" data-page="5">
+                <div class="center-content">
+                    <p class="eyebrow">4th Question:</p>
+                    <h1 class="headline">Are you single?</h1>
+                    <p class="sub">Just curious. No particular reason. (There is a reason.)</p>
+                </div>
+                <div class="fixed-row">
+                    <button class="btn btn-yes" id="p3yes" data-next="6">Yes</button>
+                    <button class="btn btn-no" id="p3no" data-next="6">No</button>
+                </div>
             </div>
 
             <!-- PAGE 5 -->
@@ -670,7 +670,7 @@
             }
             dreamLifeWarning.style.display = 'none';
             answers.dreamLife = dreamLifeInput.value.trim();
-            goTo(5);
+            goTo(4);
         });
         dreamLifeInput.addEventListener('input', () => {
             if (dreamLifeInput.value.trim().length > 0) {
@@ -691,7 +691,7 @@
             }
             passionWarning.style.display = 'none';
             answers.passion = passionInput.value.trim();
-            goTo(6);
+            goTo(5);
         });
         passionInput.addEventListener('input', () => {
             if (passionInput.value.trim().length > 0) {
